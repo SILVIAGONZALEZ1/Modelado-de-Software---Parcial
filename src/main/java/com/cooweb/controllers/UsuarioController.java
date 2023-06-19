@@ -4,9 +4,10 @@ package com.cooweb.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+import java.util.ArrayList;
 
 import com.cooweb.dao.UsuarioDao;
 import com.cooweb.models.Usuario;
@@ -16,21 +17,21 @@ public class UsuarioController {
 	
 	@Autowired
 	private UsuarioDao usuarioDao;
-	/*
-	@RequestMapping(value="mensaje")
+	
+	@GetMapping("mensaje")
 	public String mensaje() {
 		
 		return "hola";
 	}
 	
-	@RequestMapping(value="persona")
+	@GetMapping("persona")
 	public List<String> listarPersonas(){
 		
 		return List.of("Diego","Juan","Jose");
 	}
-	*/
-	/*
-	@RequestMapping(value="usuarios")
+	
+	
+	@GetMapping("usuarios")
 	public Usuario listarUsuarios() {
 	
 		Usuario usuario=new Usuario();
@@ -41,9 +42,9 @@ public class UsuarioController {
 	
 		return usuario;
 	
-	}*/
-	/*
-	@RequestMapping(value="usuario/{id}")
+	}
+	
+	@GetMapping("usuario/{id}")
 	public Usuario getUsuario(@PathVariable Long id) {
 	
 		Usuario usuario=new Usuario();
@@ -54,9 +55,9 @@ public class UsuarioController {
 		usuario.setTelefono("155619965");
 	
 		return usuario;
-}*/
-	/*
-	@RequestMapping(value="usuario/lista_user")
+}
+	
+	@GetMapping("usuario/lista_user")
 	public List<Usuario> listar_variosUsuarios() {
 	
 		List<Usuario> usuarios= new ArrayList<>();
@@ -89,8 +90,8 @@ public class UsuarioController {
 		
 		return usuarios;
 	
-	}*/
-	@RequestMapping(value="api/usuarios")
+	}
+	@GetMapping("api/usuarios")
 	public List<Usuario> getUsuarios() {
 		
 		List<Usuario> user=usuarioDao.obtenerUsuarios();
